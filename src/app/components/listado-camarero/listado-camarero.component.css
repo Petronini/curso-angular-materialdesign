@@ -1,0 +1,6 @@
+th:first-child{
+    width: 10%;
+}
+th:last-child, td:last-child{
+    text-align: right;
+} 

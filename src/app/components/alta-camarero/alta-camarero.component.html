@@ -1,0 +1,22 @@
+<div>
+  <h2>Alta Camarero</h2>
+  <!-- <p>
+    <label>código</label>
+    <input type="text" [(ngModel)]="camarero.codigo" />
+    <label>Nombre</label>
+    <input type="text" [(ngModel)]="camarero.nombre" />
+    <button (click)="crear()">Camarero</button>
+  </p> 
+-->
+
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input [(ngModel)]="camarero.codigo" [ngModelOptions]="{standalone: true}"  matInput placeholder="Código" />
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input [(ngModel)]="camarero.nombre" [ngModelOptions]="{standalone: true}" matInput placeholder="Nombre" />
+    </mat-form-field>
+    <button (click)="crear()" mat-raised-button>Camarero</button>
+
+  </form>
+</div>

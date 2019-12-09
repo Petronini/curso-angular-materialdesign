@@ -1,0 +1,67 @@
+<p>alta-producto works!</p>
+
+<div>
+    <h2>Alta producto</h2>
+
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+            <input [(ngModel)]="producto.codigo" [ngModelOptions]="{ standalone: true }" matInput
+                placeholder="Codigo" />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input [(ngModel)]="producto.nombre" [ngModelOptions]="{ standalone: true }" matInput
+                placeholder="Nombre del producto" />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <textarea [(ngModel)]="producto.descripcion" [ngModelOptions]="{ standalone: true }" matInput
+                placeholder="Haz una descripción"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input [(ngModel)]="producto.fechaAlta" [ngModelOptions]="{ standalone: true }" matInput
+                [matDatepicker]="picker" placeholder="Elige un fecha" />
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input [(ngModel)]="producto.precio" [ngModelOptions]="{ standalone: true }" matInput
+                placeholder="precio" />
+        </mat-form-field>
+
+        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+            [(ngModel)]="producto.descatalogado" [ngModelOptions]="{ standalone: true }">
+            <mat-radio-button class="example-radio-button"> </mat-radio-button>
+            Descatalogado {{ producto.descatalogado }}
+        </mat-radio-group>
+        <p>
+            <mat-form-field>
+                <mat-label>Categoría</mat-label>
+                <mat-select [(ngModel)]="producto.categoria" [ngModelOptions]="{ standalone: true }">
+                    <mat-option *ngFor="let cat of categorias" [value]="cat">
+                        {{ cat }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </p>
+        <button (click)="crear()" mat-raised-button>Crear Producto</button>
+    </form>
+</div>
+
+<!-- 
+
+
+
+<label>Familia</label>
+<select [(ngModel)]="producto.categoria"><br>
+    <option>TAPA</option>
+    <option>COMIDA</option>
+    <option>CERVEZA</option>
+    <option>CAFE</option>
+</select>
+<button (click)="crear()">Crear Producto</button>
+
+
+ -->

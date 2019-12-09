@@ -1,0 +1,65 @@
+<div>
+  <h2>Listado de productos</h2>
+  <div class="example-container mat-elevation-z8">
+
+    <!-- Filtro  -->
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20, 50, 100, 200]" showFirstLastButtons></mat-paginator>
+    <!-- Ordena la tabla -->
+    <table mat-table [dataSource]="dataSource" matSort>
+      <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Código Código -->
+      <ng-container matColumnDef="categoria">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Categoría.</th>
+        <td mat-cell *matCellDef="let element">{{ element.categoria }}</td>
+      </ng-container>
+
+      <!--  NOmbre -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>NOMBRE</th>
+        <td mat-cell *matCellDef="let element">{{ element.nombre }}</td>
+      </ng-container>
+      <!--  fechaAlta -->
+      <ng-container matColumnDef="fechaAlta">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha de Alta.</th>
+        <td mat-cell *matCellDef="let element">{{ element.fechaAlta | date: 'medium' }}</td>
+      </ng-container>
+      <!-- precio -->
+      <ng-container matColumnDef="precio">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Precio</th>
+        <td mat-cell *matCellDef="let element">{{ element.precio }}</td>
+      </ng-container>
+      <!-- codigo -->
+      <ng-container matColumnDef="codigo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Cod.</th>
+        <td mat-cell *matCellDef="let element">{{ element.codigo }}</td>
+      </ng-container>
+      <!-- descatalogado -->
+      <ng-container matColumnDef="descatalogado">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Descatalogado</th>
+        <td mat-cell *matCellDef="let element">{{ element.descatalogado }}</td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+
+    <!-- 
+
+       productoVIEW.categoria 
+       productoVIEW.nombre 
+       productoVIEW.fechaAlta <<<<<<<<
+       productoVIEW.precio <<<<
+       productoVIEW.codigo <<<<<
+       productoVIEW.descatalogado <<<<
+
+displayedColumns: string[] = ['categoria', 'nombre', 'fechaAlta', 'precio', 'codigo', 'descatalogado'];
+ -->
+  </div>

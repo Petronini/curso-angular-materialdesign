@@ -1,0 +1,56 @@
+<div>
+  <h2>Listado de productos</h2>
+
+  <table mat-table [dataSource]="productos" class="mat-elevation-z8">
+    <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Código Código -->
+    <ng-container matColumnDef="categoria">
+      <th mat-header-cell *matHeaderCellDef>Categoría.</th>
+      <td mat-cell *matCellDef="let element">{{ element.categoria }}</td>
+    </ng-container>
+
+    <!--  NOmbre -->
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef>NOMBRE</th>
+      <td mat-cell *matCellDef="let element">{{ element.nombre }}</td>
+    </ng-container>
+    <!--  fechaAlta -->
+    <ng-container matColumnDef="fechaAlta">
+      <th mat-header-cell *matHeaderCellDef>Fecha de Alta.</th>
+      <td mat-cell *matCellDef="let element">{{ element.fechaAlta | date: 'medium' }}</td>
+    </ng-container>
+    <!-- precio -->
+    <ng-container matColumnDef="precio">
+      <th mat-header-cell *matHeaderCellDef>Precio</th>
+      <td mat-cell *matCellDef="let element">{{ element.precio }}</td>
+    </ng-container>
+    <!-- codigo -->
+    <ng-container matColumnDef="codigo">
+      <th mat-header-cell *matHeaderCellDef>Cod.</th>
+      <td mat-cell *matCellDef="let element">{{ element.codigo }}</td>
+    </ng-container>
+    <!-- descatalogado -->
+    <ng-container matColumnDef="descatalogado">
+      <th mat-header-cell *matHeaderCellDef>Descatalogado</th>
+      <td mat-cell *matCellDef="let element">{{ element.descatalogado }}</td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <!-- 
+
+       productoVIEW.categoria 
+       productoVIEW.nombre 
+       productoVIEW.fechaAlta <<<<<<<<
+       productoVIEW.precio <<<<
+       productoVIEW.codigo <<<<<
+       productoVIEW.descatalogado <<<<
+
+displayedColumns: string[] = ['categoria', 'nombre', 'fechaAlta', 'precio', 'codigo', 'descatalogado'];
+ -->
+</div>
